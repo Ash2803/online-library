@@ -1,4 +1,5 @@
 import json
+import math
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -10,14 +11,15 @@ def on_reload(template):
     with open("books.json", "r") as my_file:
         books_json = my_file.read()
     books = json.loads(books_json)
-    chunked_books = list(chunked(books, 12))
-
-    pages = list(chunked(chunked_books, 1))
+    books_per_page = list(chunked(books, 12))
+    pages = list(chunked(books_per_page, 1))
     pages_path = Path('pages')
     pages_path.mkdir(parents=True, exist_ok=True)
     for page_num, books in enumerate(pages, 1):
         rendered_page = template.render(
-            chunked_books=books
+            books_per_page=books,
+            pages_count=len(books_per_page),
+            current_page=page_num
         )
         with open(pages_path / f'index{page_num}.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)
@@ -32,7 +34,7 @@ def main():
     on_reload(template)
 
     server = Server()
-    server.watch('index.html', on_reload(template))
+    server.watch('template.html', on_reload)
     server.serve(root='.')
 
 

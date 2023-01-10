@@ -11,20 +11,50 @@
     <title>Library</title>
   </head>
   <body>
+    <div style="margin-left: 15px; margin-top: 15px;" >
+      <nav aria-label="Page navigation example">
+        <ul class="pagination align-items-center">
+          {% if current_page == 1 %}
+            <li class="page-item disabled">
+          {% else %}
+            <li class="page-item">
+          {% endif %}
+              <a class="page-link" href="pages/index{{current_page - 1}}.html">Назад</a>
+            </li>
+          {% for page in range(1, pages_count +1 ) %}
+            {% if page == current_page %}
+              <li class="page-item active">
+            {% else %}
+              <li class="page-item">
+            {% endif %}
+                <a class="page-link" href="{{ '../pages/index%s.html' | format(page)}}">{{ page }}</a>
+              </li>
+          {% endfor %}
+
+          {% if current_page == pages_count %}
+            <li class="page-item disabled">
+          {% else %}
+            <li class="page-item">
+          {% endif %}
+              <a class="page-link" href="../pages/index{{current_page + 1}}.html">Вперед</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
     <div class="container">
       <div class="row row-cols-2">
-        {% for books in chunked_books: %}
+        {% for books in books_per_page: %}
         {% for book in books: %}
           <div class="card">
             <div class="row no-gutters">
               <div class="col-4">
-                <img src="{{ book['Image'] | urlencode }}" class="card-img" alt="{{ book['Title'] }}">
+                <img src="../{{ book['Image'] | urlencode }}" class="card-img" alt="{{ book['Title'] }}">
               </div>
               <div class="col-4">
                 <div class="card-body">
                   <h5 class="card-title">{{book['Title']}}</h5>
                   <p class="card-text">{{book['Author']}}</p>
-                  <a href="{{ book['Book path'] | urlencode }}" target="_blank" rel="noopener noreferrer">Читать</a>
+                  <a href="../{{ book['Book path'] | urlencode }}" target="_blank" rel="noopener noreferrer">Читать</a>
                 </div>
               </div>
             </div>
