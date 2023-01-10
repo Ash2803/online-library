@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 bin
 pyvenv.cfg
-index.html
 # C extensions
 *.so
 
@@ -116,7 +115,6 @@ venv.bak/
 # Spyder project settings
 .spyderproject
 .spyproject
-index.html
 .replit
 
 # Rope project settings
