@@ -1,5 +1,5 @@
 # Library:
-Creating a website based on parsed books from [book scrapper](https://github.com/Ash2803/book-parser).
+Creating a website based on parsed books from [book scraper](https://github.com/Ash2803/book-parser).
 
 ### How to execute:
 
@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ``` 
 ### Scraping books
 At first, you need to have data like images, books in txt format etc. To get previously mentioned data
-you need to scrap it following steps in [book scrapper's](https://github.com/Ash2803/book-parser) readme.
+you need to scrap it following steps in [book scraper's](https://github.com/Ash2803/book-parser) readme.
 After that you need to copy `images`, `books` and `books.json` to this project.
 The project already include pre-downloaded data, and you can run it just by clicking on `index` html files.
 
