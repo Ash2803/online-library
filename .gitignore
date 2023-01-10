@@ -2,13 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
-books
-images
 bin
 pyvenv.cfg
 index.html
-books.json
-pages
 # C extensions
 *.so
 
