@@ -7,6 +7,7 @@ bin
 pyvenv.cfg
 index.html
 books.json
+pages
 # C extensions
 *.so
 
