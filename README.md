@@ -23,6 +23,8 @@ Script execution:
 ```
 python main.py
 ```
+[Here](https://ash2803.github.io/online-library/pages/index1.html) you can see how the already
+built website looks.
 
 ### Project Goals
 
