@@ -18,13 +18,13 @@
           <div class="card">
             <div class="row no-gutters">
               <div class="col-4">
-                <img src="{{book['Image'] | urlencode}}" class="card-img" alt="{{book['Title']}}">
+                <img src="{{ book['Image'] | urlencode }}" class="card-img" alt="{{ book['Title'] }}">
               </div>
               <div class="col-4">
                 <div class="card-body">
                   <h5 class="card-title">{{book['Title']}}</h5>
                   <p class="card-text">{{book['Author']}}</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <a href="{{ book['Book path'] | urlencode }}" target="_blank" rel="noopener noreferrer">Читать</a>
                 </div>
               </div>
             </div>
