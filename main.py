@@ -20,7 +20,7 @@ def on_reload(template):
             pages_count=len(books_per_page),
             current_page=page_num
         )
-        with open(pages_path / f'index{page_num}.html', 'w', encoding="utf8") as file:
+        with open(pages_path / f'index{page_num}.html', 'w', encoding="utf-8") as file:
             file.write(rendered_page)
 
 
