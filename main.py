@@ -8,8 +8,7 @@ from more_itertools import chunked
 
 def on_reload(template):
     with open("books.json", "r", encoding="utf-8") as my_file:
-        books_json = my_file.read()
-    books = json.loads(books_json)
+        books = json.load(my_file)
     books_per_page = list(chunked(books, 12))
     pages = list(chunked(books_per_page, 1))
     pages_path = Path('pages')
