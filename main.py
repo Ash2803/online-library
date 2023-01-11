@@ -9,14 +9,16 @@ from more_itertools import chunked
 def on_reload(template):
     with open("books.json", "r", encoding="utf-8") as my_file:
         books = json.load(my_file)
-    books_per_page = list(chunked(books, 12))
-    pages = list(chunked(books_per_page, 1))
+    books_per_page = 12
+    chunked_books = list(chunked(books, books_per_page))
+    chunked_book_per_page = 1
+    chunked_pages = list(chunked(chunked_books, chunked_book_per_page))
     pages_path = Path('pages')
     pages_path.mkdir(parents=True, exist_ok=True)
-    for page_num, books in enumerate(pages, 1):
+    for page_num, books in enumerate(chunked_pages, 1):
         rendered_page = template.render(
             books_per_page=books,
-            pages_count=len(books_per_page),
+            pages_count=len(chunked_books),
             current_page=page_num
         )
         with open(pages_path / f'index{page_num}.html', 'w', encoding="utf-8") as file:
