@@ -7,7 +7,7 @@ from more_itertools import chunked
 
 
 def on_reload(template):
-    with open("books.json", "r") as my_file:
+    with open("books.json", "r", encoding="utf-8") as my_file:
         books_json = my_file.read()
     books = json.loads(books_json)
     books_per_page = list(chunked(books, 12))
