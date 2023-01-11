@@ -20,7 +20,7 @@
           {% else %}
             <li class="page-item">
           {% endif %}
-              <a class="page-link" href="../pages/index{{current_page - 1}}.html">Previous</a>
+              <a class="page-link" href="../pages/index{{current_page - 1}}.html">Назад</a>
             </li>
           {% for page in range(1, pages_count +1 ) %}
             {% if page == current_page %}
@@ -37,7 +37,7 @@
           {% else %}
             <li class="page-item">
           {% endif %}
-              <a class="page-link" href="../pages/index{{current_page + 1}}.html">Next</a>
+              <a class="page-link" href="../pages/index{{current_page + 1}}.html">Вперед</a>
             </li>
         </ul>
       </nav>
@@ -58,7 +58,7 @@
                     {% for genre in book['Genres'] %}
                       <h6><span class="badge badge-secondary">{{ genre }}</span></h6>
                     {% endfor %}
-                    <a href="../static/{{ book['Book path'] | urlencode }}" target="_blank" rel="noopener noreferrer">Read</a>
+                    <a href="../static/{{ book['Book path'] | urlencode }}" target="_blank" rel="noopener noreferrer">Читать</a>
                   </div>
                 </div>
               </div>
