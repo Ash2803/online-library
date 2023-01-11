@@ -45,25 +45,25 @@
     <div class="container">
       <div class="row row-cols-2">
         {% for books in books_per_page: %}
-        {% for book in books: %}
-          <div class="card mb-4" style="margin-left: 30px; max-width: 540px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="../static/{{ book['Image'] | urlencode }}" class="card-img" alt="{{ book['Title'] }}">
-              </div>
-              <div class="col-4">
-                <div class="card-body">
-                  <h5 class="card-title">{{book['Title']}}</h5>
-                  <p class="card-text">{{book['Author']}}</p>
-                  {% for genre in book['Genres'] %}
-                    <h6><span class="badge badge-secondary">{{ genre }}</span></h6>
-                  {% endfor %}
-                  <a href="../static/{{ book['Book path'] | urlencode }}" target="_blank" rel="noopener noreferrer">Read</a>
+          {% for book in books: %}
+            <div class="card mb-4" style="margin-left: 30px; max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="../static/{{ book['Image'] | urlencode }}" class="card-img" alt="{{ book['Title'] }}">
+                </div>
+                <div class="col-4">
+                  <div class="card-body">
+                    <h5 class="card-title">{{book['Title']}}</h5>
+                    <p class="card-text">{{book['Author']}}</p>
+                    {% for genre in book['Genres'] %}
+                      <h6><span class="badge badge-secondary">{{ genre }}</span></h6>
+                    {% endfor %}
+                    <a href="../static/{{ book['Book path'] | urlencode }}" target="_blank" rel="noopener noreferrer">Read</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
         {% endfor %}
         <div class="w-100"></div>
       </div>
